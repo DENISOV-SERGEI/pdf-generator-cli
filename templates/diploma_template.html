@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        @page { size: A4 landscape; margin: 0; }
+        body { 
+            font-family: 'DejaVu Sans', 'Roboto', sans-serif; 
+            background: #fff; 
+            margin: 0; 
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .certificate-container {
+            width: 277mm;
+            height: 190mm;
+            padding: 10mm;
+            border: 5px double #d4af37; /* Золотая рамка */
+            background: #faf8f2;
+            position: relative;
+            text-align: center;
+            box-sizing: border-box;
+            margin: auto;
+        }
+        .logo { font-size: 28px; color: #1a202c; font-weight: bold; letter-spacing: 2px; margin-top: 15px; }
+        .logo span { color: #d4af37; }
+        .title { font-size: 42px; color: #1a202c; font-weight: bold; margin-top: 30px; text-transform: uppercase; letter-spacing: 3px; }
+        .subtitle { font-size: 18px; color: #718096; font-style: italic; margin-top: 10px; }
+        .student-name { font-size: 36px; color: #d4af37; font-weight: bold; margin-top: 25px; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 5px; width: 80%; overflow-wrap: anywhere; }
+        .course-text { font-size: 18px; color: #4a5568; line-height: 1.6; margin-top: 25px; padding: 0 40px; overflow-wrap: anywhere; }
+        .course-name { font-weight: bold; color: #2d3748; overflow-wrap: anywhere; }
+        .footer-info { display: flex; justify-content: space-between; width: 85%; margin: 40px auto 0 auto; font-size: 14px; color: #4a5568; }
+        .signature { border-top: 1px solid #a0aec0; width: 150px; margin-top: 25px; padding-top: 5px; }
+        .cert-id { position: absolute; bottom: 15px; left: 25px; font-size: 11px; color: #a0aec0; }
+        .date-badge { position: absolute; bottom: 15px; right: 25px; font-size: 11px; color: #a0aec0; }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="logo">VIBE<span>CODING</span> ACADEMY</div>
+        
+        <div class="title">Диплом</div>
+        <div class="subtitle">настоящим подтверждается, что</div>
+        
+        <div class="student-name">{{ customer_name }}</div>
+        
+        <div class="course-text">
+            успешно прошёл(ла) комплексную программу подготовки и защитил(а) финальный проект по теме: <br>
+            <span class="course-name">«{{ product }}»</span>
+        </div>
+        
+        <div class="footer-info">
+            <div>
+                <p><strong>А. С. Смирнов</strong></p>
+                <div class="signature">Руководитель академии</div>
+            </div>
+            <div style="text-align: center; color: #d4af37; font-size: 24px; font-weight: bold; margin-top: 10px;">
+                🏆
+                <div style="font-size: 10px; color: #718096; text-transform: uppercase; margin-top: 5px;">Официальный документ</div>
+            </div>
+            <div>
+                <p><strong>М. В. Кузнецова</strong></p>
+                <div class="signature">Главный проверяющий эксперт</div>
+            </div>
+        </div>
+        
+        <div class="cert-id">ID сертификата: {{ invoice_id }}</div>
+        <div class="date-badge">Дата выдачи: {{ date }}</div>
+    </div>
+</body>
+</html>
